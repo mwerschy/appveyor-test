@@ -1,0 +1,10 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+platform: x64
+configuration: Release
+
+build_script:
+  - git clone --depth=1 https://github.com/llvm/llvm-project.git
+  - mkdir llvm-project\build
+  - cd llvm-project\build
+  - cmake -G Ninja -DPYTHON_HOME=C:\Python36 -LLDB_RELOCATABLE_PYTHON=1 ../lldb
